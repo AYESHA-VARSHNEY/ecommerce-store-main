@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Account | online store.co</title>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/svg+xml" href="./images/header/favicon.svg">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+    <body ng-controller="LoginController">
+        <img src="./images/header/headerprod.jpg" style="display: none;">
+        <div class="header">
+            <div class="container">
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="./index.html"><img src="C:\Users\ayesh\OneDrive\Pictures\ecommerce-store-main\ecommerce-store-main\images\header\comlogo.png" alt="comp" width="225px"></a>
+                    </div>
+                    <nav>
+                        <ul class="nav-menu">
+                            <li class="nav-item"><a href="index.html">Home</a></li>
+                            <li class="nav-item"><a href="products.html">Products</a></li>
+                            <li class="nav-item"><a href="#footer">Contact Us</a></li>
+                            <li class="nav-item"><a href="account.html">Account</a></li>
+                        </ul>
+                    </nav>
+                    <a href="cart.html"><img class="cart" src="./images/header/cart.svg"></a>
+                    <div class="toggle"><i class="fa fa-bars"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="formPage">
+                <img src="C:\Users\ayesh\OneDrive\Pictures\ecommerce-store-main\ecommerce-store-main\public\images\products\login.png" alt="login/register Process" class="image-class">
+                <div class="btn" id="removeLog" ng-click="showLoginForm()">Existing User? Login</div>
+                <div class="btn" id="removeReg" ng-click="showRegisterForm()">New User? Register</div>
+                <form class="showForm" id="loginForm" ng-submit="login()">
+                    <h3>Login</h3>
+                    <input type="text" placeholder="Username" ng-model="loginData.username" required>
+                    <input type="password" placeholder="Password" ng-model="loginData.password" required>
+                    <button type="submit" class="btn">Login</button>
+                    <a href="linkgoeshere">Forgot Password</a>
+                </form>
+                <form class="showForm" id="registerForm" ng-submit="register()" style="align-items: center;">
+                    <h3>Register</h3>
+                    <input type="text" placeholder="Username" ng-model="registerData.username" required>
+                    <input type="email" placeholder="E-mail" ng-model="registerData.email" required>
+                    <input type="password" placeholder="Password" ng-model="registerData.password" required><br>
+                    <button type="submit" class="btn">Register</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            var app = angular.module('loginApp', []);
+
+            app.controller('LoginController', function ($scope) {
+                $scope.loginData = {};
+                $scope.registerData = {};
+
+                $scope.showLoginForm = function () {
+                    document.getElementById("loginForm").style.display = "block";
+                    document.getElementById("registerForm").style.display = "none";
+                };
+
+                $scope.showRegisterForm = function () {
+                    document.getElementById("registerForm").style.display = "block";
+                    document.getElementById("loginForm").style.display = "none";
+                };
+
+                $scope.login = function () {
+                    console.log("Username:", $scope.loginData.username);
+                    console.log("Password:", $scope.loginData.password);
+                    alert("Login button clicked!");
+                    window.location.href="./index.html";
+                };
+
+                $scope.register = function () {
+                    console.log("Username:", $scope.registerData.username);
+                    console.log("Email:", $scope.registerData.email);
+                    console.log("Password:", $scope.registerData.password);
+                    alert("Register successfully!");
+                    window.location.href="./index.html";
+                };
+            });
+        </script>
+
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="child">
+                    <div class="footerChild1">
+                        <img src="C:\Users\ayesh\OneDrive\Pictures\ecommerce-store-main\ecommerce-store-main\images\header\comlogo.png">
+                        <h4>Mail us at: <a href="ayeshavarshney245@gmail.com">ayeshavarshney245@gmail.com</a></h4>
+                    </div>
+                    <div class="footerChild2">
+                        <h3>Help</h3>
+                        <ul>
+                            <li><a href="linkgoeshere">Payments</a></li>
+                            <li><a href="linkgoeshere">Shipping</a></li>
+                            <li><a href="linkgoeshere">Return Policy</a></li>
+                            <li><a href="linkgoeshere">FAQ Topics</a></li>
+                        </ul>
+                    </div>
+                    <div class="footerChild2">
+                        <h3>Our Socials</h3>
+                        <ul>
+                            <li><a href="linkgoeshere">Instagram</a></li>
+                            <li><a href="linkgoeshere">Facebook</a></li>
+                            <li><a href="linkgoeshere">Twitter</a></li>
+                            <li><a href="linkgoeshere">Linkedin</a></li>
+                        </ul>
+                    </div>
+                    <div class="footerChild2">
+                        <h3>Registered Office</h3>
+                        <ul>
+                            <li>Queen's Paradise Girls Hostel,</li>
+                            <li>Near TauPg</li>
+                            <li>Bidholi,Dehradun,Uttrakhand,India</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="belowfooter">
+                    online store.co 2023 <br>
+                     All rights reserved.
+                </div>
+            </div>
+        </div>
+        <script src="./src/js/script.js"></script>
+    </body>
+</html>
